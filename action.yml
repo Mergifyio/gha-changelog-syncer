@@ -22,6 +22,9 @@ inputs:
   description:
     description: "Pull Request description"
     default: ${{ github.event.pull_request.body }}
+  merged_at:
+    description: "Pull Request merge date (e.g. 2011-01-26T19:01:12Z)"
+    default: ${{ github.event.pull_request.merged_at }}
 runs:
   using: "composite"
   steps:
