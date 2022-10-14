@@ -1,0 +1,20 @@
+name: Changelog sync
+
+on:
+  pull_request_target:
+    branches: ["main"]
+    types:
+      - closed
+
+permissions: read-all
+
+jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Synchronize changelog
+        uses: Mergifyio/add-linear-author-as-reviewer@main
+        with:
+          NOTION_API_KEY:
+          NOTION_DATABASE_ID:

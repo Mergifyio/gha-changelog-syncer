@@ -1,0 +1,51 @@
+name: "changelog-syncer"
+description: "Synchronize the description of a pull request to a Notion Database."
+author: "Mergify"
+inputs:
+  NOTION_API_TIMEOUT:
+    required: false
+    description: "Notion API timeout"
+  NOTION_API_KEY:
+    required: true
+    description: "Notion API key"
+  NOTION_DATABASE_ID:
+    required: true
+    description: "Notion Database ID"
+  NOTION_API_VERSION:
+    required: false
+    description: "Notion API version"
+  title:
+    description: "Pull Request title"
+    default: ${{ github.event.pull_request.title }}
+  description:
+    description: "Pull Request description"
+    default: ${{ github.event.pull_request.body }}
+runs:
+  using: "composite"
+  steps:
+    - name: Install poetry
+      shell: bash
+      run: pipx install poetry
+    - uses: actions/setup-python@v4
+      with:
+        python-version: 3.10
+        cache: poetry
+    - run: poetry install --only main --no-interaction
+      shell: bash
+    - run: poetry run python ${{ github.action_path }}/changelog-syncer.py
+      shell: bash
+      env:
+        NOTION_API_TIMEOUT: ${{ inputs.NOTION_API_TIMEOUT }}
+        NOTION_API_KEY: ${{ inputs.NOTION_API_KEY }}
+        NOTION_DATABASE_ID: ${{ inputs.NOTION_DATABASE_ID }}
+        NOTION_API_VERSION: ${{ inputs.NOTION_API_VERSION }}
+    # - id: extract
+    #   shell: bash
+    #   run: |
+    #     python3 -m venv venv
+    #     venv/bin/pip install -r ${{ github.action_path }}/requirements.txt
+    #     venv/bin/python ${{ github.action_path }}/changelog-syncer.py
+    #   env:
+    #     NOTION_API_KEY: ${{ inputs.NOTION_API_KEY }}
+    #     NOTION_DATABASE_ID: ${{ inputs.NOTION_DATABASE_ID }}
+    #     # INPUT_PULL_REQUEST_BODY: ${{ github.event.pull_request.body  }}
