@@ -44,9 +44,6 @@ def add_database_entry(
         "Date": {
             "date": {"start": merged_at.isoformat()},
         },
-        # "Categories": {
-        #     "multi_select": [{"name": "Actions"}, {"name": "Merge Queue"}],
-        # },
         "Name": {
             "title": [text_block(title)],
         },
