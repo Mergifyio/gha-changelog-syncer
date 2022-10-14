@@ -44,13 +44,3 @@ runs:
         NOTION_API_KEY: ${{ inputs.NOTION_API_KEY }}
         NOTION_DATABASE_ID: ${{ inputs.NOTION_DATABASE_ID }}
         NOTION_API_VERSION: ${{ inputs.NOTION_API_VERSION }}
-    # - id: extract
-    #   shell: bash
-    #   run: |
-    #     python3 -m venv venv
-    #     venv/bin/pip install -r ${{ github.action_path }}/requirements.txt
-    #     venv/bin/python ${{ github.action_path }}/changelog-syncer.py
-    #   env:
-    #     NOTION_API_KEY: ${{ inputs.NOTION_API_KEY }}
-    #     NOTION_DATABASE_ID: ${{ inputs.NOTION_DATABASE_ID }}
-    #     # INPUT_PULL_REQUEST_BODY: ${{ github.event.pull_request.body  }}
