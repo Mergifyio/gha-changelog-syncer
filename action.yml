@@ -5,6 +5,7 @@ inputs:
   NOTION_API_TIMEOUT:
     required: false
     description: "Notion API timeout"
+    default: 10
   NOTION_API_KEY:
     required: true
     description: "Notion API key"
