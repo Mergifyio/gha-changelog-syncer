@@ -4,17 +4,17 @@ GitHub Action to synchronize the description of a pull request to a Notion Datab
 
 ## Installation
 
-First, create a `.env` file by copying `.env.example` file and completing empty variables.
-Then install Python dependencies.
-
 ```
 poetry install
 ```
 
-## Run
+## Run locally
+
+First, create a `.env` file by copying `.env.example` file and completing empty variables.
+Then install Python dependencies.
 
 ```
-poetry run python changelog_syncer.py
+poetry run dotenv run -- python changelog_syncer.py
 ```
 
 ## Delivery

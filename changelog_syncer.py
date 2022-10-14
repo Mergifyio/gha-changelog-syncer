@@ -11,7 +11,7 @@ def main() -> None:
     )
     notion_api_key = os.environ.get("NOTION_API_KEY", "")
     notion_database_id = os.environ.get("NOTION_DATABASE_ID", "")
-    notion_api_version = os.environ.get("NOTION_API_VERSION", "")
+    notion_api_version = os.environ.get("NOTION_API_VERSION", "2022-06-28")
 
     client = httpx.Client(
         base_url="https://api.notion.com",
@@ -80,7 +80,4 @@ def text_block(content: str) -> dict[str, typing.Any]:
 
 
 if __name__ == "__main__":
-    from dotenv import load_dotenv
-
-    load_dotenv()
     main()
