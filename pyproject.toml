@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "gha-changelog-syncer"
+version = "0.1.0"
+description = "Synchronize GitHub Pull Request to Notion Database"
+authors = ["Charly Laurent <charly.laurent@mergify.com>"]
+readme = "README.md"
+packages = [{include = "gha_changelog_syncer"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+httpx = "^0.23.0"
+
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^5.0.4"
+mypy = "^0.982"
+black = {version = "^22.10.0", allow-prereleases = true}
+python-dotenv = "^0.21.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
