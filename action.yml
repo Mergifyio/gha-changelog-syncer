@@ -35,7 +35,7 @@ runs:
         cache: poetry
     - run: poetry install --only main --no-interaction
       shell: bash
-    - run: poetry run python ${{ github.action_path }}/changelog-syncer.py
+    - run: poetry run python gha_changelog_syncer/__init__.py
       shell: bash
       env:
         NOTION_API_TIMEOUT: ${{ inputs.NOTION_API_TIMEOUT }}
