@@ -1,5 +1,5 @@
 name: "changelog-syncer"
-description: "Synchronize the description of a pull request to a Notion Database."
+description: "Send a pull request description to a Notion Database."
 author: "Mergify"
 inputs:
   NOTION_API_TIMEOUT:
@@ -17,13 +17,13 @@ inputs:
     description: "Notion API version"
     default: "2022-06-28"
   title:
-    description: "Pull Request title"
+    description: "Pull request title"
     default: ${{ github.event.pull_request.title }}
   description:
-    description: "Pull Request description"
+    description: "Pull request description"
     default: ${{ github.event.pull_request.body }}
   merged_at:
-    description: "Pull Request merge date (e.g. 2011-01-26T19:01:12Z)"
+    description: "Pull request merge date (e.g. 2011-01-26T19:01:12Z)"
     default: ${{ github.event.pull_request.merged_at }}
 runs:
   using: "composite"
