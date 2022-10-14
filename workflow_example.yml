@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Synchronize changelog
-        uses: Mergifyio/add-linear-author-as-reviewer@main
+        uses: DouglasBlackwood/gha-changelog-syncer@main
         with:
           NOTION_API_KEY:
           NOTION_DATABASE_ID:
