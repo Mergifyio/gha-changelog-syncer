@@ -73,6 +73,7 @@ def add_changelog_entry(
         response.raise_for_status()
     except httpx.HTTPStatusError as e:
         print(e.response.json()["message"])
+        raise
 
 
 def text_block(content: str) -> dict[str, typing.Any]:
