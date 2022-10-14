@@ -1,6 +1,6 @@
 import datetime
-import typing
 import os
+import typing
 
 import httpx
 
@@ -22,7 +22,7 @@ def main() -> None:
             "Authorization": f"Bearer {notion_api_key}",
         },
     )
-    add_changelog_entry(
+    add_database_entry(
         client,
         notion_database_id=notion_database_id,
         title="General Kenobi",
@@ -31,7 +31,7 @@ def main() -> None:
     )
 
 
-def add_changelog_entry(
+def add_database_entry(
     client: httpx.Client,
     notion_database_id: str | None,
     title: str,
@@ -63,7 +63,7 @@ def add_changelog_entry(
                 "type": "database_id",
                 "database_id": notion_database_id,
             },
-            "icon": {"emoji": "🤖"},
+            "icon": {"emoji": "🟠"},
             "properties": properties,
             "children": children,
         },
