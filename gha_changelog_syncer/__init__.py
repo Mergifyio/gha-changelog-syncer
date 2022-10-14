@@ -86,12 +86,20 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Send a pull request description to a Notion Database."
     )
-    parser.add_argument("--title", help="Pull request title", required=True)
-    parser.add_argument("--description", help="Pull request description", default="")
+    parser.add_argument(
+        "--title",
+        help="Pull request title",
+        default=os.getenv("PR_TITLE"),
+    )
+    parser.add_argument(
+        "--description",
+        help="Pull request description",
+        default=os.environ.get("PR_DESCRIPTION", ""),
+    )
     parser.add_argument(
         "--merged_at",
         help="Pull request merge date (e.g. 2011-01-26T19:01:12Z)",
-        default=datetime.datetime.utcnow().isoformat(),
+        default=os.environ.get("PR_MERGED_AT", datetime.datetime.utcnow().isoformat()),
     )
 
     args = parser.parse_args()

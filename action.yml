@@ -16,13 +16,13 @@ inputs:
     required: false
     description: "Notion API version"
     default: "2022-06-28"
-  title:
+  PR_TITLE:
     description: "Pull request title"
     default: ${{ github.event.pull_request.title }}
-  description:
+  PR_DESCRIPTION:
     description: "Pull request description"
     default: ${{ github.event.pull_request.body }}
-  merged_at:
+  PR_MERGED_AT:
     description: "Pull request merge date (e.g. 2011-01-26T19:01:12Z)"
     default: ${{ github.event.pull_request.merged_at }}
 runs:
@@ -40,10 +40,12 @@ runs:
         cache: poetry
     - run: poetry install --only main --no-interaction
       shell: bash
-    - run: poetry run python gha_changelog_syncer/__init__.py --title '${{ inputs.title }}' --description '${{ inputs.description }}' --merged_at '${{ inputs.merged_at }}'
+    - run: poetry run python gha_changelog_syncer/__init__.py
       shell: bash
       env:
         NOTION_API_TIMEOUT: ${{ inputs.NOTION_API_TIMEOUT }}
         NOTION_API_KEY: ${{ inputs.NOTION_API_KEY }}
         NOTION_DATABASE_ID: ${{ inputs.NOTION_DATABASE_ID }}
-        NOTION_API_VERSION: ${{ inputs.NOTION_API_VERSION }}
+        PR_TITLE: ${{ inputs.PR_TITLE }}
+        PR_DESCRIPTION: ${{ inputs.PR_DESCRIPTION }}
+        PR_MERGED_AT: ${{ inputs.PR_MERGED_AT }}
