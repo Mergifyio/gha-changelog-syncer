@@ -3,6 +3,7 @@ import datetime
 import os
 import typing
 
+import dateutil.parser
 import httpx
 
 
@@ -94,6 +95,6 @@ if __name__ == "__main__":
     )
 
     args = parser.parse_args()
-    merged_at = datetime.datetime.fromisoformat(args.merged_at)
+    merged_at = dateutil.parser.isoparse(args.merged_at)
 
     main(args.title, args.description, merged_at)
