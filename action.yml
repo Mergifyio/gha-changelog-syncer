@@ -31,16 +31,16 @@ runs:
     - uses: actions/checkout@v3
       with:
         repository: "DouglasBlackwood/gha-changelog-syncer"
+    - name: Install poetry
+      shell: bash
+      run: pipx install poetry
     - uses: actions/setup-python@v4
       with:
         python-version: "3.10"
         cache: poetry
-    - name: Install poetry
-      shell: bash
-      run: pipx install poetry
     - run: poetry install --only main --no-interaction
       shell: bash
-    - run: poetry run python gha_changelog_syncer/__init__.py
+    - run: poetry run python gha_changelog_syncer/__init__.py --title ${{ inputs.title }} --description ${{ inputs.description }} --merged_at ${{ inputs.merged_at }}
       shell: bash
       env:
         NOTION_API_TIMEOUT: ${{ inputs.NOTION_API_TIMEOUT }}
