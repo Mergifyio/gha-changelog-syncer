@@ -15,6 +15,7 @@ inputs:
   NOTION_API_VERSION:
     required: false
     description: "Notion API version"
+    default: "2022-06-28"
   title:
     description: "Pull Request title"
     default: ${{ github.event.pull_request.title }}
