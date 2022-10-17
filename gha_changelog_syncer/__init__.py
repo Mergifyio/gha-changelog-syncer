@@ -1,13 +1,11 @@
-import argparse
 import datetime
 import os
 import typing
 
-import dateutil.parser
 import httpx
 
 
-def main(title: str, description: str, merged_at: datetime.datetime) -> None:
+def run(title: str, description: str, merged_at: datetime.datetime) -> None:
     notion_api_timeout = httpx.Timeout(
         float(os.environ.get("NOTION_API_TIMEOUT", 10.0))
     )
@@ -77,29 +75,3 @@ def add_database_entry(
 
 def text_block(content: str) -> dict[str, typing.Any]:
     return {"text": {"content": content}}
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        description="Send a pull request description to a Notion Database."
-    )
-    parser.add_argument(
-        "--title",
-        help="Pull request title",
-        default=os.getenv("PR_TITLE"),
-    )
-    parser.add_argument(
-        "--description",
-        help="Pull request description",
-        default=os.environ.get("PR_DESCRIPTION", ""),
-    )
-    parser.add_argument(
-        "--merged_at",
-        help="Pull request merge date (e.g. 2011-01-26T19:01:12Z)",
-        default=os.environ.get("PR_MERGED_AT", datetime.datetime.utcnow().isoformat()),
-    )
-
-    args = parser.parse_args()
-    merged_at = dateutil.parser.isoparse(args.merged_at)
-
-    main(args.title, args.description, merged_at)

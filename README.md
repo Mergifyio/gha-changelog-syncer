@@ -40,5 +40,5 @@ poetry install
 Create a `.env` file by copying `.env.example` file and completing empty variables. Then run the program.
 
 ```
-poetry run dotenv run -- python gha_changelog_syncer/__init__.py
+poetry run cli_handler --title 'hello' --description 'there' --merged_at '2022-10-17'
 ```

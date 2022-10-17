@@ -40,7 +40,7 @@ runs:
         cache: poetry
     - run: poetry install --only main --no-interaction
       shell: bash
-    - run: poetry run python gha_changelog_syncer/__init__.py
+    - run: poetry run gha_handler
       shell: bash
       env:
         NOTION_API_TIMEOUT: ${{ inputs.NOTION_API_TIMEOUT }}
