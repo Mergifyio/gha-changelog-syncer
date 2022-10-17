@@ -18,10 +18,9 @@ def handle():
     parser.add_argument(
         "--merged_at",
         help="Pull request merge date (e.g. 2011-01-26T19:01:12Z)",
-        default=datetime.datetime.utcnow().isoformat(),
+        type=dateutil.parser.isoparse,
+        default=datetime.datetime.utcnow(),
     )
 
     args = parser.parse_args()
-    merged_at = dateutil.parser.isoparse(args.merged_at)
-
-    gha_changelog_syncer.run(args.title, args.description, merged_at)
+    gha_changelog_syncer.run(args.title, args.description, args.merged_at)
