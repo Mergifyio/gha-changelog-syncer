@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Synchronize changelog
-        uses: DouglasBlackwood/gha-changelog-syncer@main
+        uses: Mergifyio/gha-changelog-syncer@main
         with:
           NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
