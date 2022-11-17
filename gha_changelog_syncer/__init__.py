@@ -26,7 +26,7 @@ def run(title: str, description: str, merged_at: datetime.datetime) -> None:
         client,
         notion_database_id=notion_database_id,
         title=title,
-        merged_at=merged_at,
+        merged_at=merged_at.date(),
         description=description,
     )
 
@@ -35,7 +35,7 @@ def add_database_entry(
     client: httpx.Client,
     notion_database_id: str | None,
     title: str,
-    merged_at: datetime.datetime,
+    merged_at: datetime.date,
     description: str,
 ) -> None:
     properties = {
