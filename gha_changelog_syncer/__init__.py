@@ -1,8 +1,14 @@
 import datetime
+import logging
 import os
+import sys
 import typing
 
+import daiquiri
 import httpx
+
+daiquiri.setup(level=logging.INFO, outputs=[daiquiri.output.Stream(sys.stdout)])
+LOGGER = daiquiri.getLogger(__name__)
 
 
 def run(title: str, description: str, merged_at: datetime.datetime) -> None:
@@ -38,6 +44,13 @@ def add_database_entry(
     merged_at: datetime.date,
     description: str,
 ) -> None:
+    LOGGER.info(
+        "Add changelog entry",
+        title=title,
+        merged_at=merged_at.isoformat(),
+        description=description,
+    )
+
     properties = {
         "Date": {
             "date": {"start": merged_at.isoformat()},
@@ -69,8 +82,10 @@ def add_database_entry(
     try:
         response.raise_for_status()
     except httpx.HTTPStatusError as e:
-        print(e.response.json()["message"])
+        LOGGER.error(e.response.json()["message"])
         raise
+    else:
+        LOGGER.info("Changelog entry added")
 
 
 def text_block(content: str) -> dict[str, typing.Any]:

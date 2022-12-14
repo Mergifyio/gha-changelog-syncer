@@ -1,6 +1,7 @@
 import argparse
 import datetime
 
+import daiquiri
 import dateutil.parser
 import dotenv
 
@@ -23,4 +24,8 @@ def handle():
     )
 
     args = parser.parse_args()
+
+    logger = daiquiri.getLogger(__name__)
+    logger.info("Arguments parsed", arguments=args)
+
     gha_changelog_syncer.run(args.title, args.description, args.merged_at)
