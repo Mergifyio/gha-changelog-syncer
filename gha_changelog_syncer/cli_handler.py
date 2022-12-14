@@ -17,7 +17,7 @@ def handle():
     parser.add_argument("--description", help="Pull request description", default="")
     parser.add_argument(
         "--merged_at",
-        help="Pull request merge date (e.g. 2011-01-26T19:01:12Z)",
+        help="Pull request merge date (e.g. 2011-01-26)",
         type=dateutil.parser.isoparse,
         default=datetime.datetime.utcnow(),
     )
