@@ -31,7 +31,7 @@ def run(title: str, description: str, merged_at: datetime.datetime) -> None:
     add_database_entry(
         client,
         notion_database_id=notion_database_id,
-        title=f"{title} (test)",
+        title=title,
         merged_at=merged_at.date(),
         description=description,
     )
