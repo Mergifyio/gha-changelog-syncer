@@ -33,10 +33,7 @@ runs:
     #     repository: "Mergifyio/gha-changelog-syncer"
     - name: Install poetry
       shell: bash
-      run: ls
-    - name: Install poetry
-      shell: bash
-      run: ls ../
+      run: echo ${{github.action_path}}
     - name: Install poetry
       shell: bash
       run: pipx install poetry
