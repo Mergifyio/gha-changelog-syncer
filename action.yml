@@ -28,12 +28,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-    # - uses: actions/checkout@v3
-    #   with:
-    #     repository: "Mergifyio/gha-changelog-syncer"
-    - name: Install poetry
-      shell: bash
-      run: echo ${{github.action_path}}
     - name: Install poetry
       shell: bash
       run: pipx install poetry
@@ -42,8 +36,10 @@ runs:
         python-version: "3.10"
         cache: poetry
     - run: poetry install --only main --no-interaction
+      working-directory: ${{ github.action_path }}
       shell: bash
     - run: poetry run gha_handler
+      working-directory: ${{ github.action_path }}
       shell: bash
       env:
         NOTION_API_TIMEOUT: ${{ inputs.NOTION_API_TIMEOUT }}
