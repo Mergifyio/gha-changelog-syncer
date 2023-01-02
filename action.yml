@@ -31,19 +31,18 @@ runs:
     - name: Install poetry
       shell: bash
       run: pipx install poetry
-    - name: Change to action directory
-      shell: bash
-      run: cd ${{ github.action_path }}
     - uses: actions/setup-python@v4
       with:
         python-version: "3.10"
         cache: poetry
-    - run: poetry install --only main --no-interaction
+    - name: Install Python dependencies
       working-directory: ${{ github.action_path }}
       shell: bash
-    - run: poetry run gha_handler
+      run: poetry install --only main --no-interaction
+    - name: Run action script
       working-directory: ${{ github.action_path }}
       shell: bash
+      run: poetry run gha_handler
       env:
         NOTION_API_TIMEOUT: ${{ inputs.NOTION_API_TIMEOUT }}
         NOTION_API_KEY: ${{ inputs.NOTION_API_KEY }}
