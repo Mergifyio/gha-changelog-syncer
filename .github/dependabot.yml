@@ -1,0 +1,20 @@
+version: 2
+updates:
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: daily
+      # yamllint disable-line rule:quoted-strings
+      time: "10:00"
+      timezone: Europe/Paris
+    open-pull-requests-limit: 10
+    allow:
+      - dependency-name: "*"
+        dependency-type: all
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+      # yamllint disable-line rule:quoted-strings
+      time: "10:00"
+      timezone: Europe/Paris
