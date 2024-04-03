@@ -10,7 +10,7 @@ packages = [{include = "gha_changelog_syncer"}]
 python = "^3.10"
 httpx = "^0.23.0"
 python-dateutil = "^2.8.2"
-daiquiri = "^3.2.1"
+daiquiri = "^3.2.5"
 
 [build-system]
 requires = ["poetry-core"]

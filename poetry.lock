@@ -34,13 +34,13 @@ files = [
 
 [[package]]
 name = "daiquiri"
-version = "3.2.1"
+version = "3.2.5.1"
 description = "Library to configure Python logging easily"
 optional = false
-python-versions = "*"
+python-versions = ">=3.8"
 files = [
-    {file = "daiquiri-3.2.1-py3-none-any.whl", hash = "sha256:b797a7ac94219dc26ef8ebf04f1f507eefa83a7d174e9eb41acc33e3ebf16f38"},
-    {file = "daiquiri-3.2.1.tar.gz", hash = "sha256:408c4d28ec8f0ea23e965374479829bd22364d0c08d791cbeb7bba245963e0fd"},
+    {file = "daiquiri-3.2.5.1-py3-none-any.whl", hash = "sha256:4a3457f54fc077e12796b258dfdc7f16572177e41c95d84c54bf010a9fd371d3"},
+    {file = "daiquiri-3.2.5.1.tar.gz", hash = "sha256:5f2e86d6fca8bc38d1e9adfa605184df6fdea3702e07ca02d16aa3d0043b2eec"},
 ]
 
 [package.dependencies]
@@ -197,4 +197,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "20ce1e369eff6dffe3bcce847ecca2d936ce6876607faead8d66823f5aba40bf"
+content-hash = "603c6b00113971a399307a21fa21ae60c1cb91279ceb2a9288510c6375b87644"
