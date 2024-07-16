@@ -14,7 +14,6 @@ queue_rules:
   - name: default
     <<: *DefaultQueueOptions
     queue_conditions:
-      - "check-success=Rule: Conventional Commit (post_check)"
       - "#approved-reviews-by>=1"
       - "#changes-requested-reviews-by=0"
       - "#review-threads-unresolved=0"
@@ -23,7 +22,6 @@ queue_rules:
   - name: lowprio
     <<: *DefaultQueueOptions
     queue_conditions:
-      - "check-success=Rule: Conventional Commit (post_check)"
       - "#commits=1"
       - author=dependabot[bot]
     merge_method: merge
@@ -40,7 +38,6 @@ pull_request_rules:
     conditions:
       - base=main
       - label!=manual merge
-      - "check-success=Rule: Conventional Commit (post_check)"
     actions:
       queue:
 
