@@ -35,14 +35,14 @@ files = [
 
 [[package]]
 name = "daiquiri"
-version = "3.3.0"
+version = "3.4.0"
 description = "Library to configure Python logging easily"
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
 files = [
-    {file = "daiquiri-3.3.0-py3-none-any.whl", hash = "sha256:ceb2e7923280a18be3fa6a37cb6da705bb92436607a3ee71bc79cdedae0b9aeb"},
-    {file = "daiquiri-3.3.0.tar.gz", hash = "sha256:bb26e0547300ee40c6404111cb0ead18273f697cdc5a0fe2c606723323a7eaf2"},
+    {file = "daiquiri-3.4.0-py3-none-any.whl", hash = "sha256:64d2d6e1cd5f03d86a3a111b2a526cf335e5e85332b7835a9199404785df0753"},
+    {file = "daiquiri-3.4.0.tar.gz", hash = "sha256:ca1d32c2c0a06f3614ff803a87ac1d50d628db34d0bf7ed97df0ca576332054f"},
 ]
 
 [package.dependencies]
@@ -206,6 +206,7 @@ description = "Backported and Experimental Type Hints for Python 3.9+"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
+markers = "python_version < \"3.13\""
 files = [
     {file = "typing_extensions-4.15.0-py3-none-any.whl", hash = "sha256:f0fa19c6845758ab08074a0cfa8b7aecb71c999ca73d62883bc25cc018c4e548"},
     {file = "typing_extensions-4.15.0.tar.gz", hash = "sha256:0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"},
@@ -214,4 +215,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "e4fa8b45575d09a0df09ed4bb2c32288e6cf609f068d01ad71e447882f59de68"
+content-hash = "e0dc1f6dfa565f1907c601a9e867bb891e1b1b75f81e75f5d4b6d588183dc35f"
